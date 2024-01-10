@@ -1,0 +1,29 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Build and Test
+        run: |
+          ./mvnw test  # Assuming you're using Maven
+          # Or use `./gradlew test` if you're using Gradle
+
+      - name: Check Test Results
+        if: failure()
+        run: exit 1  # Mark the workflow as failed if tests failed
