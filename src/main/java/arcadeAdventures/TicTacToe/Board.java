@@ -1,10 +1,10 @@
 package arcadeAdventures.TicTacToe;
 
 public class Board {
-    private char[][] cells = new char[3][3];
+    private char[][] cells;
 
     public Board() {
-        //TODO
+        cells = new char[3][3];
     }
 
     public boolean isCellEmpty(int x, int y) {
