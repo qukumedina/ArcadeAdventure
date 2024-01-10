@@ -6,7 +6,11 @@ name: Maven Package
 on:
   release:
     types: [created]
-
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
 jobs:
   build:
 
@@ -24,7 +28,14 @@ jobs:
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+     
+    - name: Run Tests 
+      run: mvn test
+      
+    - name: Check Test Results
+      if: failure()
+      run: exit 1  # Mark the workflow as failed if tests failed
+      
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
