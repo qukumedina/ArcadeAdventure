@@ -48,6 +48,7 @@ public class TicTacToe {
                 System.out.println("Invalid move. Try again.");
             }
         }
+        board.print();
     }
 
     private boolean isValidMove(int row, int col) {
