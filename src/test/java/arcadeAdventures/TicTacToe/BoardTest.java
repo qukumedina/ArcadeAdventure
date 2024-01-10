@@ -56,7 +56,119 @@ public class BoardTest {
     public void clear() {
     }
 
+    // Horizontal Win Test Cases
     @Test
-    public void checkWinner() {
+    public void testHorizontalWinTopRow() {
+        board.place(0, 0, 'X');
+        board.place(0, 1, 'X');
+        board.place(0, 2, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+
+        board.clear();
+        board.place(0, 0, 'O');
+        board.place(0, 1, 'O');
+        board.place(0, 2, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+    }
+
+    @Test
+    public void testHorizontalWinBottomRow() {
+        board.place(2, 0, 'O');
+        board.place(2, 1, 'O');
+        board.place(2, 2, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+
+        board.clear();
+        board.place(2, 0, 'X');
+        board.place(2, 1, 'X');
+        board.place(2, 2, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+    }
+
+    @Test
+    public void testHorizontalWinMiddRow() {
+        board.place(1, 0, 'O');
+        board.place(1, 1, 'O');
+        board.place(1, 2, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+
+        board.clear();
+        board.place(1, 0, 'X');
+        board.place(1, 1, 'X');
+        board.place(1, 2, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+    }
+
+    // Vertical Win Test Cases
+    @Test
+    public void testVerticalWinLeftColumn() {
+        board.place(0, 0, 'X');
+        board.place(1, 0, 'X');
+        board.place(2, 0, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+
+        board.clear();
+        board.place(0, 0, 'O');
+        board.place(1, 0, 'O');
+        board.place(2, 0, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+    }
+
+    @Test
+    public void testVerticalWinRightColumn() {
+        board.place(0, 2, 'O');
+        board.place(1, 2, 'O');
+        board.place(2, 2, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+
+        board.clear();
+        board.place(0, 2, 'X');
+        board.place(1, 2, 'X');
+        board.place(2, 2, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+    }
+
+    @Test
+    public void testVerticalWinMiddColumn() {
+        board.place(0, 1, 'O');
+        board.place(1, 1, 'O');
+        board.place(2, 1, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+
+        board.clear();
+        board.place(0, 1, 'X');
+        board.place(1, 1, 'X');
+        board.place(2, 1, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+    }
+
+
+    // Diagonal Win Test Cases
+    @Test
+    public void testDiagonalWinFromTopLeft() {
+        board.place(0, 0, 'X');
+        board.place(1, 1, 'X');
+        board.place(2, 2, 'X');
+        Assert.assertEquals('X', board.checkWinner());
+
+        board.clear();
+        board.place(0, 0, 'O');
+        board.place(1, 1, 'O');
+        board.place(2, 2, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+    }
+
+    @Test
+    public void testDiagonalWinFromTopRight() {
+        board.place(0, 2, 'O');
+        board.place(1, 1, 'O');
+        board.place(2, 0, 'O');
+        Assert.assertEquals('O', board.checkWinner());
+
+        board.clear();
+        board.place(0, 2, 'X');
+        board.place(1, 1, 'X');
+        board.place(2, 0, 'X');
+        Assert.assertEquals('X', board.checkWinner());
     }
 }
