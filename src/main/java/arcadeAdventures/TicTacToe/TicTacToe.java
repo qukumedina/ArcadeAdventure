@@ -67,16 +67,48 @@ public class TicTacToe {
         }
     }
 
-    private boolean isValidMove(int row, int col) {
+    public boolean isValidMove(int row, int col) {
         return row >= 0 && row < 3 && col >= 0 && col < 3 && board.isCellEmpty(row, col);
     }
 
-    private void switchCurrentPlayer() {
+    public void switchCurrentPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
     private boolean hasWinner(){
         return false;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(Player player1) {
+        this.player1 = player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 }
 
