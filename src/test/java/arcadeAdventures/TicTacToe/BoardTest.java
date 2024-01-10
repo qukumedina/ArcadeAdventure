@@ -57,10 +57,6 @@ public class BoardTest {
     }
 
     @Test
-    public void print() {
-    }
-
-    @Test
     public void checkWinner() {
     }
 }

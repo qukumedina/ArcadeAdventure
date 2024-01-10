@@ -32,7 +32,12 @@ public class Board {
 
 
     public void print() {
-        //TODO
+        System.out.println("\n ___________");
+        for (int i = 0; i < 3; i++) {
+            System.out.println("|   |   |   |");
+            System.out.printf("| %c | %c | %c |\n", cells[i][0], cells[i][1], cells[i][2]);
+            System.out.println("|___|___|___|");
+        }
     }
 
     public char checkWinner() {
