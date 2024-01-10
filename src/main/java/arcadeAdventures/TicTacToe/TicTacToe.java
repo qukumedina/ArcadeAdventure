@@ -56,6 +56,7 @@ public class TicTacToe {
             System.out.println("The game is a draw!");
         }
 
+
         System.out.println("Do you want to play again? (yes/no)");
         String playAgain = scanner.next().toLowerCase();
         if (playAgain.equals("yes")) {

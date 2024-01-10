@@ -52,8 +52,18 @@ public class BoardTest {
         Assert.assertTrue("Board should be full after all cells are occupied", board.isFull());
     }
 
+    // Tests for clear
     @Test
-    public void clear() {
+    public void testClearEmptyBoard() {
+        board.clear();
+        Assert.assertTrue("Board should be empty after clear", board.isCellEmpty(0, 0));
+    }
+
+    @Test
+    public void testClearAfterPlacements() {
+        board.place(0, 0, 'X');
+        board.clear();
+        Assert.assertTrue("Board should be empty after clear", board.isCellEmpty(0, 0));
     }
 
     // Horizontal Win Test Cases
