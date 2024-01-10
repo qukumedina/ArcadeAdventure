@@ -8,17 +8,22 @@ public class Board {
     }
 
     public boolean isCellEmpty(int x, int y) {
-        //TODO
-        return false;
+        return cells[x][y] != 'X' && cells[x][y] != 'O';
     }
 
     public void place(int x, int y, char marker) {
-        //TODO
+        cells[x][y] = marker;
     }
 
     public boolean isFull() {
-        //TODO
-        return false;
+        for (char[] row : cells) {
+            for (char cell : row) {
+                if (cell != 'X' && cell != 'O') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void clear() {
