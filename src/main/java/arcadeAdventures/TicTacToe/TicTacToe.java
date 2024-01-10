@@ -49,6 +49,21 @@ public class TicTacToe {
             }
         }
         board.print();
+
+        if (winner != '\0') {
+            System.out.println("Player " + winner + " wins!");
+        } else {
+            System.out.println("The game is a draw!");
+        }
+
+        System.out.println("Do you want to play again? (yes/no)");
+        String playAgain = scanner.next().toLowerCase();
+        if (playAgain.equals("yes")) {
+            board.clear();
+            start();
+        } else {
+            System.out.println("Thanks for playing!");
+        }
     }
 
     private boolean isValidMove(int row, int col) {
@@ -60,7 +75,6 @@ public class TicTacToe {
     }
 
     private boolean hasWinner(){
-
         return false;
     }
 }
